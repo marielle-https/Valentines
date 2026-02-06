@@ -59,58 +59,52 @@
             display: none;
             font-size: 18px;
             margin-bottom: 10px;
+            color: #e91e63;
             font-weight: bold;
         }
-
-        .message1 { color: #e91e63; }
-        .message2 { color: red; }
     </style>
 </head>
 
 <body>
     <main>
         <div class="container">
+            <!-- upper txt -->
+            <div id="yesText" class="message1">YAY YES😘😘😘</div>
             
-            <div id="yesText" class="message1">YAY YES 😘😘😘</div>
-            <div id="noText" class="message2">NGANONG NO MANNNN 😭😭</div>
-
+            <!-- upper txt for No -->
+            <div id="noText" class="message2">NGANONG NO MANNNN😭😭</div>
             
+            <!-- fromt img -->
             <img src="balentong.jpg" id="mainImage" class="image">
 
-            
             <div class="buttons">
-                <button id="yesBtn" class="button1" onclick="yesClick()">YES! 💖</button>
-                <button id="noBtn" class="button2" onclick="noClick()">NO 💔</button>
+                <button class="button1" id="yesBtn" onclick="yesClick()">YES! 💖</button>
+                <button class="button2" id="noBtn" onclick="noClick()">NO 💔</button>
             </div>
         </div>
     </main>
 
     <script>
-        let noClicked = false;
+    let noClicked = false;
 
-        function yesClick() {
-            if(noClicked) {
-                document.getElementById("noText").style.display = "none";
-            }
-            document.getElementById("mainImage").src = "squid-game.gif";
-            document.getElementById("yesText").style.display = "block";
-
-            
-            document.getElementById("yesBtn").style.display = "none";
-            document.getElementById("noBtn").style.display = "none";
+    function yesClick() {
+        if(noClicked) {
+            document.getElementById("noText").style.display = "none";
         }
 
-        function noClick() {
-            noClicked = true;
-            
-            document.getElementById("mainImage").src = "crying-sad.gif";
-            document.getElementById("noText").style.display = "block";
+        document.getElementById("mainImage").src = "squid-game.gif";
+        document.getElementById("yesText").style.display = "block";
+        document.getElementById("yesBtn").style.display = "none";
+        document.getElementById("noBtn").style.display = "none";
+    }
 
-            document.getElementById("noBtn").style.display = "none";
-        }
-    </script>
-</body>
-</html>    }
+    function noClick() {
+        noClicked = true;
+
+        document.getElementById("mainImage").src = "crying-sad.gif";
+        document.getElementById("noText").style.display = "block";
+        document.getElementById("noBtn").style.display = "none";
+    }
 </script>
 </body>
 </html>
