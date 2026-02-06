@@ -13,10 +13,6 @@
             font-family: Arial, sans-serif;
             background: #f4f4f4;
             height: 100vh;
-        }
-
-        main {
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,90 +21,96 @@
         .container {
             text-align: center;
             width: 95%;
-            height: auto;
+            max-width: 400px;
         }
 
         .image {
             width: 100%;
+            max-width: 300px;
             margin-bottom: 20px;
+            border-radius: 10px;
         }
 
         .buttons {
             display: flex;
-            gap: 10px;
+            flex-direction: column;
+            gap: 15px;
             width: 100%;
-            height: auto;
-           
         }
 
         button {
-            flex: 1;
-            padding: 12px 0;
+            width: 100%;
+            padding: 18px 0;
             border: none;
-            border-radius: 10px;
-            font-size: 16px;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: bold;
             cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
         }
 
         .button1 {
-            background-color: pink;
+            background-color: #ff99cc;
+            color: white;
         }
 
         .button2 {
-            background-color: red;
+            background-color: #ff4d4d;
             color: white;
         }
         
-        .message1, .message2{
+        .message1, .message2 {
             display: none;
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #e91e63;
+            font-size: 35px;
+            margin-bottom: 20px;
             font-weight: bold;
         }
+
+        .message1 { color: #e91e63; }
+        .message2 { color: #d32f2f; }
     </style>
 </head>
 
 <body>
-    <main>
-        <div class="container">
-            <!-- upper txt -->
-            <div id="yesText" class="message1">YAY YES😘😘😘</div>
-            
-            <!-- upper txt for No -->
-            <div id="noText" class="message2">NGANONG NO MANNNN😭😭</div>
-            
-            <!-- fromt img -->
-            <img src="balentong.jpg" id="mainImage" class="image">
+    <div class="container">
+        <!-- upper txt 4 no & yes -->
+        <div id="yesText" class="message1">YAY YES 😘😘😘</div>
+        <div id="noText" class="message2">NGANONG NO MANNNN 😭😭</div>
 
-            <div class="buttons">
-                <button id="yesBtn" class="button1" onclick="yesClick()">YES! 💖</button>
-<button id="noBtn" class="button2" onclick="noClick()">NO 💔</button>
-            </div>
+        <!--piksyor-->
+        <img src="balentong.jpg" id="mainImage" class="image">
+
+        <!--buttonz-->
+        <div class="buttons">
+            <button id="yesBtn" class="button1" onclick="yesClick()">YES! 💖</button>
+            <button id="noBtn" class="button2" onclick="noClick()">NO 💔</button>
         </div>
-    </main>
+    </div>
 
     <script>
-    let noClicked = false;
+        let noClicked = false;
 
-    function yesClick() {
-        if(noClicked) {
-            document.getElementById("noText").style.display = "none";
+        function yesClick() {
+            if(noClicked) {
+                document.getElementById("noText").style.display = "none";
+                noClicked = false;
+            }
+            document.getElementById("mainImage").src = "squid-game.gif";
+            document.getElementById("yesText").style.display = "block";
+            document.getElementById("yesBtn").style.display = "none";
+            document.getElementById("noBtn").style.display = "none";
         }
 
-        document.getElementById("mainImage").src = "squid-game.gif";
-        document.getElementById("yesText").style.display = "block";
-        document.getElementById("yesBtn").style.display = "none";
-        document.getElementById("noBtn").style.display = "none";
-    }
-
-    function noClick() {
-        noClicked = true;
-
-        document.getElementById("mainImage").src = "crying-sad.gif";
-        document.getElementById("noText").style.display = "block";
-        document.getElementById("noBtn").style.display = "none";
-    }
-</script>
+        function noClick() {
+            noClicked = true;
+            document.getElementById("mainImage").src = "crying-sad.gif";
+            document.getElementById("noText").style.display = "block";
+            document.getElementById("noBtn").style.display = "none";
+        }
+    </script>
 </body>
 </html>
